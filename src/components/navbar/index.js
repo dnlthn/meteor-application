@@ -29,7 +29,6 @@ const NavButton = glamorous.button(
       : {
           ':hover': {
             color: '#5661B3'
-            // border: '2px solid #5661B3'
           }
         }
 );
