@@ -10,8 +10,7 @@ const NavButton = glamorous.button(
   {
     padding: '.25rem .5rem .25rem .5rem',
     margin: '0 .125rem 0 .125rem',
-    fontFamily: 'SourceSansPro-Regular',
-    fontSize: '16px',
+    fontFamily: 'Source Sans Pro',
     color: '#4A4A4A',
     cursor: 'pointer',
     background: 'transparent',
