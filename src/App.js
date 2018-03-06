@@ -9,17 +9,26 @@ import Resume from './pages/resume';
 
 class App extends Component {
   state = {
-    page: <About />
+    page: <About />,
+    current_page_name: 'about'
   };
   render() {
     return (
       <NavigationProvider
         value={{
+          current_page_name: this.state.current_page_name,
           navigate_to: {
-            about: () => this.setState({ page: <About /> }),
-            tech: () => this.setState({ page: <Tech /> }),
-            feedback: () => this.setState({ page: <Feedback /> }),
-            resume: () => this.setState({ page: <Resume /> })
+            about: () =>
+              this.setState({ page: <About />, current_page_name: 'about' }),
+            tech: () =>
+              this.setState({ page: <Tech />, current_page_name: 'tech' }),
+            feedback: () =>
+              this.setState({
+                page: <Feedback />,
+                current_page_name: 'feedback'
+              }),
+            resume: () =>
+              this.setState({ page: <Resume />, current_page_name: 'resume' })
           }
         }}
       >
