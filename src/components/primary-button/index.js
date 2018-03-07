@@ -7,6 +7,7 @@ const Button = glamorous.button(
     background: '#5661B3',
     boxShadow: '0 2px 4px 0 rgba(0,0,0,0.20)',
     borderRadius: '2px',
+    border: 'none',
     fontWeight: '600',
     fontSize: '1.25rem',
     letterSpacing: '0.05rem',
