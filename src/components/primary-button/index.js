@@ -22,7 +22,9 @@ const Button = glamorous.button(
       transform: 'translateY(1px)'
     }
   },
-  ({ icon }) => icon && { paddingLeft: '40px' }
+  ({ hasIcon }) => {
+    if (hasIcon) return { paddingLeft: '40px' };
+  }
 );
 
 const Icon = glamorous.img({
@@ -33,7 +35,7 @@ const Icon = glamorous.img({
 });
 
 const PrimaryButton = ({ svg, onClick, children }) => (
-  <Button onClick={onClick} icon={svg !== null}>
+  <Button onClick={onClick} hasIcon={svg !== null}>
     {svg && <Icon src={svg} alt={`${children} icon`} />}
     {children}
   </Button>
