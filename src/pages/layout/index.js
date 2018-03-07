@@ -1,5 +1,5 @@
 import React from 'react';
-import NavBar from '../../components/navbar';
+import Header from '../../components/header';
 import glamorous from 'glamorous';
 
 const Container = glamorous.div({
@@ -11,10 +11,14 @@ const Container = glamorous.div({
   width: '1000'
 });
 
+const BodyContainer = glamorous.div({
+  padding: '0 4.5rem 0 4.5rem'
+});
+
 const Layout = ({ page }) => (
   <Container>
-    <NavBar />
-    {page}
+    <Header />
+    <BodyContainer>{page}</BodyContainer>
   </Container>
 );
 export default Layout;
