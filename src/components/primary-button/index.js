@@ -11,7 +11,7 @@ const Button = glamorous.button(
     fontSize: '1.25rem',
     letterSpacing: '0.05rem',
     textTransform: 'uppercase',
-    color: '#E6E8FF',
+    color: 'white',
     fontFamily: 'Source Sans Pro',
     padding: '.25rem .75rem .25rem .75rem',
     position: 'relative',
