@@ -26,12 +26,15 @@ const Feedback = () => (
       <Title>Feedback Welcome</Title>
       <BodyText>
         I encourage all types of feedback, regardless of whether it is negative
-        or positive. There are three ways to choose to give feedback.
+        or positive. There are two ways to choose to give feedback.
         <br />
         <br />
-        If you would like a response from me, Slack will give the quickest
-        response time, though I will do my best to respond to an email as soon
-        as I see it.
+        If you would like a response from me, you can click the{' '}
+        <em>Send Email</em> link below, which will open an email to me in your
+        default email application. If you prefer to use a different email
+        application, my email address is <strong>hey@danielthompson.io</strong>.
+        I will do my best to respond as quickly as possible. This typically
+        means within 45 minutes to an hour.
         <br />
         <br />
         If you do not want, or need, a response, feel free to leave a comment
@@ -58,7 +61,13 @@ const Feedback = () => (
       <NavigationConsumer>
         {({ navigate_to }) => (
           <Fragment>
-            <TextButton onClick={navigate_to.resume}>SEND EMAIL</TextButton>
+            <TextButton
+              onClick={() => {
+                window.location.href = 'mailto:hey@danielthompson.io';
+              }}
+            >
+              SEND EMAIL
+            </TextButton>
             <PrimaryButton onClick={navigate_to.resume} svg={resume_icon}>
               VIEW RESUME
             </PrimaryButton>
