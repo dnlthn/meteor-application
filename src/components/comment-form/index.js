@@ -39,7 +39,7 @@ const MAX_LETTERS = 512;
 const FormContainer = glamorous.div({
   display: 'flex',
   flexDirection: 'column',
-  color: '#8795A1'
+  color: '#3D4852'
 });
 
 const NameInput = glamorous.input({
@@ -50,6 +50,9 @@ const NameInput = glamorous.input({
   padding: '1rem 1.5rem 1rem 1.5rem',
   ':focus': {
     outline: 'none'
+  },
+  '::placeholder': {
+    color: '#8795A1'
   }
 });
 
@@ -66,6 +69,9 @@ const MessageInput = glamorous.textarea(
     height: '8rem',
     ':focus': {
       outline: 'none'
+    },
+    '::placeholder': {
+      color: '#8795A1'
     }
   },
   ({ messageLength }) => {
