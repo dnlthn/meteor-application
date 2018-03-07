@@ -2,7 +2,6 @@ import React, { Fragment } from 'react';
 import glamorous from 'glamorous';
 import { Consumer as NavigationConsumer } from '../../context/navigation';
 
-import { BodyText, HeaderText } from '../../components/shared';
 import PrimaryButton from '../../components/primary-button';
 import TextButton from '../../components/text-button';
 import code_icon from '../../svg/code.svg';
