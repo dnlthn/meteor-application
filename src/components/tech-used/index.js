@@ -1,5 +1,4 @@
 import React from 'react';
-import glamorous from 'glamorous';
 import { gql } from 'apollo-boost';
 import { Query } from 'react-apollo';
 import { PulseLoader } from 'react-spinners';

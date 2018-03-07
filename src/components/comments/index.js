@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import glamorous from 'glamorous';
 import { gql } from 'apollo-boost';
 import { Query } from 'react-apollo';
