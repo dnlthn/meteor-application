@@ -13,8 +13,9 @@ export const FlexContainer = glamorous.ul(
     borderBottom: '1px solid #F5E5FC',
     marginBottom: '2rem'
   },
-  ({ alignItems }) => ({
-    alignItems: alignItems
+  ({ alignItems, justifyContent }) => ({
+    alignItems: alignItems,
+    justifyContent: justifyContent
   })
 );
 
@@ -27,3 +28,18 @@ export const Left = glamorous.li({
   display: 'flex',
   alignItems: 'baseline'
 });
+
+export const BodyText = glamorous.p(
+  {
+    lineHeight: '1.5',
+    maxWidth: '590px'
+  },
+  ({ darkBackground }) =>
+    darkBackground ? { color: '#E6E8FF' } : { color: '#606F7B' }
+);
+
+export const HeaderText = glamorous.p(
+  { fontWeight: '700', letterSpacing: '0.05em' },
+  ({ darkBackground }) =>
+    darkBackground ? { color: '#FECA57' } : { color: '#5661B3' }
+);
