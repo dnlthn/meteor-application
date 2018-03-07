@@ -1,33 +1,10 @@
 import React, { Fragment } from 'react';
-
-import NavBar from '../navbar';
 import glamorous from 'glamorous';
 
+import NavBar from '../navbar';
+import { TopBar, FlexContainer, Left, Right } from '../shared';
+
 import meteor_logo from '../../svg/meteor.svg';
-
-const TopBar = glamorous.div({
-  background: '#5661B3',
-  height: '5px'
-});
-
-const FlexContainer = glamorous.ul({
-  padding: '1rem 4.5rem 1rem 4.5rem',
-  display: 'flex',
-  alignItems: 'center',
-  backgroundImage: 'linear-gradient(90deg, #FFFCE9 30%, #FBF2FF 80%)',
-  borderBottom: '1px solid #F5E5FC',
-  marginBottom: '2rem'
-});
-
-const Right = glamorous.li({
-  marginLeft: 'auto'
-});
-
-const Left = glamorous.li({
-  alignSelf: 'flex-start',
-  display: 'flex',
-  alignItems: 'baseline'
-});
 
 const LogoText = glamorous.div({
   fontWeight: '200',
@@ -39,7 +16,7 @@ const LogoText = glamorous.div({
 const Header = () => (
   <Fragment>
     <TopBar />
-    <FlexContainer>
+    <FlexContainer alignItems={'center'}>
       <Left>
         <LogoText>daniel to </LogoText>
         <img src={meteor_logo} alt="Meteor Logo" />
