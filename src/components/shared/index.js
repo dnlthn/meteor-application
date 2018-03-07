@@ -5,7 +5,7 @@ export const TopBar = glamorous.div({
   height: '5px'
 });
 
-export const FlexContainer = glamorous.ul(
+export const HeaderFlex = glamorous.ul(
   {
     padding: '1rem 4.5rem 1rem 4.5rem',
     display: 'flex',
@@ -19,7 +19,12 @@ export const FlexContainer = glamorous.ul(
   })
 );
 
-export const Right = glamorous.li({
+export const FlexContainer = glamorous.div({
+  alignItems: 'baseline',
+  display: 'flex'
+});
+
+export const Right = glamorous.div({
   marginLeft: 'auto'
 });
 

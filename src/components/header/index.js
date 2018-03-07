@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import glamorous from 'glamorous';
 
 import NavBar from '../navbar';
-import { TopBar, FlexContainer, Left, Right } from '../shared';
+import { TopBar, HeaderFlex, Left, Right } from '../shared';
 
 import meteor_logo from '../../svg/meteor.svg';
 
@@ -16,7 +16,7 @@ const LogoText = glamorous.div({
 const Header = () => (
   <Fragment>
     <TopBar />
-    <FlexContainer alignItems={'flex-start'}>
+    <HeaderFlex alignItems={'flex-start'}>
       <Left style={{ marginTop: '-.5rem' }}>
         <LogoText>daniel to </LogoText>
         <img src={meteor_logo} alt="Meteor Logo" />
@@ -24,7 +24,7 @@ const Header = () => (
       <Right>
         <NavBar />
       </Right>
-    </FlexContainer>
+    </HeaderFlex>
   </Fragment>
 );
 

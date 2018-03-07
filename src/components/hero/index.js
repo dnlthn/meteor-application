@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import glamorous from 'glamorous';
 
 import NavBar from '../navbar';
-import { TopBar, FlexContainer, Right } from '../shared';
+import { TopBar, HeaderFlex, Right } from '../shared';
 
 import meteor_logo from '../../svg/meteor.svg';
 
@@ -31,7 +31,7 @@ const Job = glamorous.span({
 const Hero = () => (
   <Fragment>
     <TopBar />
-    <FlexContainer alignItems={'flex-start'}>
+    <HeaderFlex alignItems={'flex-start'}>
       <HeroLeft>
         <Introduction>Hello, I'm Daniel.</Introduction>
         <Intention>And this is my application</Intention>
@@ -53,7 +53,7 @@ const Hero = () => (
       <Right>
         <NavBar />
       </Right>
-    </FlexContainer>
+    </HeaderFlex>
   </Fragment>
 );
 
