@@ -104,7 +104,7 @@ class CommentForm extends Component {
             this.setState({ body: event.target.value });
           }}
           value={this.state.body}
-          placeholder="Write the first comment!"
+          placeholder="Leave some feedback!"
           messageLength={body_length}
         />
         <div style={body_length >= MAX_LETTERS ? { color: 'red' } : {}}>
