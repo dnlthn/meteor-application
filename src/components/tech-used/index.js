@@ -5,7 +5,7 @@ import { Query } from 'react-apollo';
 import { PulseLoader } from 'react-spinners';
 import GitHubButton from '../../components/github-button';
 
-import { HeaderText, BodyText } from '../shared';
+import { HeaderText, BodyText, FlexContainer, Right } from '../shared';
 
 const QUERY = gql`
   query {
@@ -18,14 +18,6 @@ const QUERY = gql`
   }
 `;
 
-const FlexContainer = glamorous.div({
-  alignItems: 'baseline',
-  display: 'flex'
-});
-
-const Right = glamorous.div({
-  marginLeft: 'auto'
-});
 const TechUsed = ({ style }) => (
   <div style={style}>
     <Query query={QUERY}>
