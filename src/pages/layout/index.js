@@ -17,9 +17,9 @@ const BodyContainer = glamorous.div({
   padding: '0 4.5rem 2.5rem 4.5rem'
 });
 
-const Layout = ({ page, showHero }) => (
+const Layout = ({ page, current_page_name }) => (
   <Container>
-    {showHero ? <Hero /> : <Header />}
+    {current_page_name === 'about' ? <Hero /> : <Header />}
     <BodyContainer>{page}</BodyContainer>
   </Container>
 );
