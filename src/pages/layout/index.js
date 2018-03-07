@@ -5,13 +5,12 @@ import Header from '../../components/header';
 import Hero from '../../components/hero';
 
 const Container = glamorous.div({
-  maxWidth: '1000px',
+  width: '1000px',
   background: '#ffffff',
   borderRight: '1px solid #DAE1E7',
   borderLeft: '1px solid #DAE1E7',
   borderBottom: '1px solid #DAE1E7',
-  height: '100vh',
-  width: '1000'
+  marginTop: '10px'
 });
 
 const BodyContainer = glamorous.div({
