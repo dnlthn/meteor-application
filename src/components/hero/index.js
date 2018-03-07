@@ -19,7 +19,8 @@ const Introduction = glamorous.div({
 const Intention = glamorous.div({
   fontWeight: '200',
   fontSize: '1.75rem',
-  paddingLeft: '.25rem'
+  paddingLeft: '.25rem',
+  lineHeight: '1.25'
 });
 
 const Job = glamorous.span({
