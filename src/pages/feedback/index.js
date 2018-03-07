@@ -2,18 +2,12 @@ import React, { Fragment } from 'react';
 import glamorous from 'glamorous';
 import { Consumer as NavigationConsumer } from '../../context/navigation';
 
-import { BodyText } from '../../components/shared';
+import { BodyText, Container } from '../../components/shared';
 import PrimaryButton from '../../components/primary-button';
 import TextButton from '../../components/text-button';
 import SecondaryButton from '../../components/secondary-button';
 import resume_icon from '../../svg/news-paper.svg';
 import Comments from '../../components/comments';
-
-const Container = glamorous.div({
-  display: 'flex',
-  alignItems: 'center',
-  flexDirection: 'column'
-});
 
 const Title = glamorous.div({
   fontSize: '1.875rem',
@@ -25,10 +19,6 @@ const ButtonContainer = glamorous.div({
   justifyContent: 'center',
   margin: '1.5rem'
 });
-
-const MarginBetweenSections = {
-  marginTop: '1.5rem'
-};
 
 const Feedback = () => (
   <Container>

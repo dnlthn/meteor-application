@@ -2,23 +2,19 @@ import React, { Fragment } from 'react';
 import glamorous from 'glamorous';
 import { Consumer as NavigationConsumer } from '../../context/navigation';
 
-import { BodyText, HeaderText, SectionIntro } from '../../components/shared';
+import {
+  BodyText,
+  HeaderText,
+  SectionIntro,
+  Right,
+  Container
+} from '../../components/shared';
 import PrimaryButton from '../../components/primary-button';
 import TextButton from '../../components/text-button';
 import TechUsed from '../../components/tech-used';
 
 import GitHubButton from '../../components/github-button';
 import chat_bubble from '../../svg/chat-bubble-dots.svg';
-
-const Container = glamorous.div({
-  display: 'flex',
-  alignItems: 'center',
-  flexDirection: 'column'
-});
-
-const Right = glamorous.div({
-  marginLeft: 'auto'
-});
 
 const DisclaimerContainer = glamorous.div({
   background: '#2F365F',

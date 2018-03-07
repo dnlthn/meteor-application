@@ -55,3 +55,9 @@ export const SectionIntro = glamorous.h1({
   color: '#4A4A4A',
   textAlign: 'center'
 });
+
+export const Container = glamorous.div({
+  display: 'flex',
+  alignItems: 'center',
+  flexDirection: 'column'
+});

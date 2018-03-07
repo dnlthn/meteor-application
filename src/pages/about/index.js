@@ -8,12 +8,7 @@ import code_icon from '../../svg/code.svg';
 import WhoAreWe from '../../components/who-are-we';
 import Strengths from '../../components/strengths';
 import Weaknesses from '../../components/weaknesses';
-
-const Container = glamorous.div({
-  display: 'flex',
-  alignItems: 'center',
-  flexDirection: 'column'
-});
+import { Container } from '../../components/shared';
 
 const ThankYou = glamorous.div({
   fontSize: '1.25rem',
