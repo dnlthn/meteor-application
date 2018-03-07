@@ -32,7 +32,10 @@ class App extends Component {
           }
         }}
       >
-        <Layout page={this.state.page} />
+        <Layout
+          page={this.state.page}
+          pageName={this.state.current_page_name}
+        />
       </NavigationProvider>
     );
   }
