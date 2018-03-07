@@ -45,7 +45,9 @@ const WeaknessSubtitle = glamorous.div({
 });
 
 const WhoContainer = glamorous.div({
-  display: 'flex'
+  display: 'flex',
+  justifyContent: 'space-between',
+  width: '100%'
 });
 
 const WhoGray = glamorous.div({
@@ -65,7 +67,7 @@ const WhoBox = glamorous.div({
   borderRadius: '2px',
   display: 'flex',
   flexDirection: 'column',
-  margin: '1rem',
+  maxWidth: '400',
   marginTop: '-7.5rem'
 });
 
