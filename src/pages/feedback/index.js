@@ -5,6 +5,9 @@ import { Consumer as NavigationConsumer } from '../../context/navigation';
 import { BodyText } from '../../components/shared';
 import PrimaryButton from '../../components/primary-button';
 import TextButton from '../../components/text-button';
+import SecondaryButton from '../../components/secondary-button';
+import resume_icon from '../../svg/news-paper.svg';
+import Comments from '../../components/comments';
 
 const Container = glamorous.div({
   display: 'flex',
@@ -66,13 +69,18 @@ const Feedback = () => (
         {({ navigate_to }) => (
           <Fragment>
             <TextButton onClick={navigate_to.resume}>SEND EMAIL</TextButton>
-            <PrimaryButton onClick={navigate_to.resume}>
+            <SecondaryButton onClick={navigate_to.resume}>
+              JOIN SLACK
+            </SecondaryButton>
+            <PrimaryButton onClick={navigate_to.resume} svg={resume_icon}>
               VIEW RESUME
             </PrimaryButton>
           </Fragment>
         )}
       </NavigationConsumer>
     </ButtonContainer>
+
+    <Comments />
   </Container>
 );
 
