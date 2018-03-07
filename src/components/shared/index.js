@@ -39,7 +39,7 @@ export const BodyText = glamorous.p(
 );
 
 export const HeaderText = glamorous.p(
-  { fontWeight: '700', letterSpacing: '0.05em' },
+  { fontWeight: '700', letterSpacing: '0.05em', textTransform: 'uppercase' },
   ({ darkBackground }) =>
     darkBackground ? { color: '#FECA57' } : { color: '#5661B3' }
 );
