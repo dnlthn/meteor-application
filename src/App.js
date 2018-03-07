@@ -10,7 +10,7 @@ import Resume from './pages/resume';
 class App extends Component {
   state = {
     page: <About />,
-    current_page_name: 'about'
+    showHero: true
   };
   render() {
     return (
@@ -18,24 +18,18 @@ class App extends Component {
         value={{
           current_page_name: this.state.current_page_name,
           navigate_to: {
-            about: () =>
-              this.setState({ page: <About />, current_page_name: 'about' }),
-            tech: () =>
-              this.setState({ page: <Tech />, current_page_name: 'tech' }),
+            about: () => this.setState({ page: <About />, showHero: true }),
+            tech: () => this.setState({ page: <Tech />, showHero: false }),
             feedback: () =>
               this.setState({
                 page: <Feedback />,
-                current_page_name: 'feedback'
+                showHero: false
               }),
-            resume: () =>
-              this.setState({ page: <Resume />, current_page_name: 'resume' })
+            resume: () => this.setState({ page: <Resume />, showHero: false })
           }
         }}
       >
-        <Layout
-          page={this.state.page}
-          pageName={this.state.current_page_name}
-        />
+        <Layout {...this.state} />
       </NavigationProvider>
     );
   }
