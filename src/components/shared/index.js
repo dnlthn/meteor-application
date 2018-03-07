@@ -43,3 +43,10 @@ export const HeaderText = glamorous.p(
   ({ darkBackground }) =>
     darkBackground ? { color: '#FECA57' } : { color: '#5661B3' }
 );
+
+export const SectionIntro = glamorous.h1({
+  fontWeight: '200',
+  fontSize: '1.875rem',
+  color: '#4A4A4A',
+  textAlign: 'center'
+});
