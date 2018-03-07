@@ -7,6 +7,8 @@ body {
   background: #f8fafc;
   display: flex;
   justify-content: center;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
 }
 
 ul {
