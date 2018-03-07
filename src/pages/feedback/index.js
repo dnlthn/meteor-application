@@ -59,9 +59,6 @@ const Feedback = () => (
         {({ navigate_to }) => (
           <Fragment>
             <TextButton onClick={navigate_to.resume}>SEND EMAIL</TextButton>
-            <SecondaryButton onClick={navigate_to.resume}>
-              JOIN SLACK
-            </SecondaryButton>
             <PrimaryButton onClick={navigate_to.resume} svg={resume_icon}>
               VIEW RESUME
             </PrimaryButton>
