@@ -16,8 +16,8 @@ const LogoText = glamorous.div({
 const Header = () => (
   <Fragment>
     <TopBar />
-    <FlexContainer alignItems={'center'}>
-      <Left>
+    <FlexContainer alignItems={'flex-start'}>
+      <Left style={{ marginTop: '-.5rem' }}>
         <LogoText>daniel to </LogoText>
         <img src={meteor_logo} alt="Meteor Logo" />
       </Left>
