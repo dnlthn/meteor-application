@@ -176,16 +176,24 @@ const Resume = () => (
       <Left>
         <Label title="QUICK INFO" />
       </Left>
-      <Right>
-        <Query
-          query={INFO_QUERY}
-          variables={{ email: 'hey@danielthompson.io' }}
-        >
-          {({ loading, error, data: { Person } }) => {
-            if (loading) return <PulseLoader color={'#5661B3'} />;
-
-            const { email, twitter, github } = Person;
+      <Query query={INFO_QUERY} variables={{ email: 'hey@danielthompson.io' }}>
+        {({ loading, error, data: { Person } }) => {
+          if (loading)
             return (
+              <div
+                style={{
+                  display: 'flex',
+                  justifyContent: 'center',
+                  flex: '1 0 auto'
+                }}
+              >
+                <PulseLoader color={'#5661B3'} />
+              </div>
+            );
+
+          const { email, twitter, github } = Person;
+          return (
+            <Right>
               <div
                 style={{
                   padding: '0 0 0 1.25em',
@@ -207,86 +215,125 @@ const Resume = () => (
                   <span style={{ fontWeight: '200' }}>{github}</span>
                 </div>
               </div>
-            );
-          }}
-        </Query>
-      </Right>
+            </Right>
+          );
+        }}
+      </Query>
     </FlexContainer>
 
     <FlexContainer style={{ width: '100%', marginTop: '2rem' }}>
       <Left>
         <Label title="Skills" subtitle="or tech I use day to day" />
       </Left>
-      <Right>
-        <Query
-          query={SKILLS_QUERY}
-          variables={{ email: 'hey@danielthompson.io' }}
-        >
-          {({ loading, error, data: { Person } }) => {
-            if (loading) return <PulseLoader color={'#5661B3'} />;
+      <Query
+        query={SKILLS_QUERY}
+        variables={{ email: 'hey@danielthompson.io' }}
+      >
+        {({ loading, error, data: { Person } }) => {
+          if (loading)
+            return (
+              <div
+                style={{
+                  display: 'flex',
+                  justifyContent: 'center',
+                  flex: '1 0 auto'
+                }}
+              >
+                <PulseLoader color={'#5661B3'} />
+              </div>
+            );
 
-            const { skills } = Person;
-            return <Skills skills={skills} />;
-          }}
-        </Query>
-      </Right>
+          const { skills } = Person;
+          return (
+            <Right>
+              <Skills skills={skills} />
+            </Right>
+          );
+        }}
+      </Query>
     </FlexContainer>
 
     <FlexContainer style={{ width: '100%', marginTop: '2rem' }}>
       <Left>
         <Label title="Education" />
       </Left>
-      <Right>
-        <Query
-          query={EDUCATION_QUERY}
-          variables={{ email: 'hey@danielthompson.io' }}
-        >
-          {({ loading, error, data: { Person } }) => {
-            if (loading) return <PulseLoader color={'#5661B3'} />;
+      <Query
+        query={EDUCATION_QUERY}
+        variables={{ email: 'hey@danielthompson.io' }}
+      >
+        {({ loading, error, data: { Person } }) => {
+          if (loading)
+            return (
+              <div
+                style={{
+                  display: 'flex',
+                  justifyContent: 'center',
+                  flex: '1 0 auto'
+                }}
+              >
+                <PulseLoader color={'#5661B3'} />
+              </div>
+            );
 
-            const { education } = Person;
-            return education.map(({ id, location, timeSpan, degree, name }) => (
-              <Content
-                key={id}
-                date={timeSpan}
-                location={location}
-                title={degree}
-                company={name}
-              />
-            ));
-          }}
-        </Query>
-      </Right>
+          const { education } = Person;
+          return (
+            <Right>
+              {education.map(({ id, location, timeSpan, degree, name }) => (
+                <Content
+                  key={id}
+                  date={timeSpan}
+                  location={location}
+                  title={degree}
+                  company={name}
+                />
+              ))}
+            </Right>
+          );
+        }}
+      </Query>
     </FlexContainer>
 
     <FlexContainer style={{ width: '100%', marginTop: '2rem' }}>
       <Left>
         <Label title="Experience" />
       </Left>
-      <Right>
-        <Query
-          query={EXPERIENCE_QUERY}
-          variables={{ email: 'hey@danielthompson.io' }}
-        >
-          {({ loading, error, data: { Person } }) => {
-            if (loading) return <PulseLoader color={'#5661B3'} />;
-
-            const { experience } = Person;
-            return experience.map(
-              ({ body, company, id, location, timeSpan, title }) => (
-                <Content
-                  key={id}
-                  date={timeSpan}
-                  location={location}
-                  title={title}
-                  company={company}
-                  body={body}
-                />
-              )
+      <Query
+        query={EXPERIENCE_QUERY}
+        variables={{ email: 'hey@danielthompson.io' }}
+      >
+        {({ loading, error, data: { Person } }) => {
+          if (loading)
+            return (
+              <div
+                style={{
+                  display: 'flex',
+                  justifyContent: 'center',
+                  flex: '1 0 auto'
+                }}
+              >
+                <PulseLoader color={'#5661B3'} />
+              </div>
             );
-          }}
-        </Query>
-      </Right>
+
+          const { experience } = Person;
+          return (
+            <Right>
+              {experience.map(
+                ({ body, company, id, location, timeSpan, title }) => (
+                  <Content
+                    key={id}
+                    date={timeSpan}
+                    location={location}
+                    title={title}
+                    company={company}
+                    body={body}
+                  />
+                )
+              )}
+            </Right>
+          );
+        }}
+      </Query>
     </FlexContainer>
   </Container>
 );
