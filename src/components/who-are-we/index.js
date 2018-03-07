@@ -40,11 +40,10 @@ const WhoAreWe = () => (
             margin: '.75rem 0 1rem 0'
           }}
         >
-          I am a web developer that specializes in frontend development, but
-          enjoys the entire process of developing a user focused product to help
-          people succeed. When I am not working, I spend my time consuming
-          content, such as screencasts, podcasts, blogs, and occasionally books,
-          about new and exciting, or new to me, web technologies.
+          I am a software developer that specializes in frontend development,
+          specifically the React ecosystem. I enjoy developing user focused
+          products that help people succeed and am enamored with the JavaScript
+          ecosystem because of how quickly it moves.
         </BodyText>
       </GrayBackground>
     </Box>

@@ -61,11 +61,11 @@ const Tech = () => (
         </Right>
       </DisclaimerHeader>
       <BodyText darkBackground={true} style={{ marginTop: '0' }}>
-        This website is severely over-engineered. Other than the comments on the
-        next page, the entire website would be better served using a static site
-        generator, like Gatsby. However, the goal of this website is to show
-        proof that I know, and can effectively work with, the technologies
-        Meteor Development Group both uses and develops.
+        This website is severely over-engineered. Except for, maybe, the
+        comments on the next page, the entire website would be better served
+        using a static site generator, like Gatsby. However, the goal of this
+        website is to show proof that I know, and can effectively work with, the
+        technologies Meteor Development Group both uses and develops.
         <br />
         <br />
         All source code is available by clicking the link above. I have listed
