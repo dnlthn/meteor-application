@@ -36,7 +36,7 @@ const Icon = glamorous.img({
 });
 
 const PrimaryButton = ({ svg, onClick, children, style }) => (
-  <Button onClick={onClick} hasIcon={svg !== null} style={style}>
+  <Button onClick={onClick} hasIcon={svg !== undefined} style={style}>
     {svg && <Icon src={svg} alt={`${children} icon`} />}
     {children}
   </Button>
