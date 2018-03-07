@@ -65,7 +65,8 @@ const WhoBox = glamorous.div({
   borderRadius: '2px',
   display: 'flex',
   flexDirection: 'column',
-  margin: '1em'
+  margin: '1rem',
+  marginTop: '-7.5rem'
 });
 
 const ThankYou = glamorous.div({
