@@ -4,14 +4,7 @@ import { gql } from 'apollo-boost';
 import { Query } from 'react-apollo';
 import { PulseLoader } from 'react-spinners';
 
-import { HeaderText, BodyText } from '../shared';
-
-const StrengthsHeader = glamorous.h1({
-  fontWeight: '200',
-  fontSize: '1.875rem',
-  color: '#4A4A4A',
-  textAlign: 'center'
-});
+import { HeaderText, BodyText, SectionIntro } from '../shared';
 
 const QUERY = gql`
   query GetPerson($email: String!, $type: TraitType!) {
@@ -26,7 +19,7 @@ const QUERY = gql`
 `;
 const Strengths = ({ style }) => (
   <div style={style}>
-    <StrengthsHeader>Two things that make me a natural fit</StrengthsHeader>
+    <SectionIntro>Two things that make me a natural fit</SectionIntro>
     <Query
       query={QUERY}
       variables={{ email: 'hey@danielthompson.io', type: 'Strength' }}
