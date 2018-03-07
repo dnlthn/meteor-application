@@ -40,8 +40,11 @@ const WhoAreWe = () => (
             margin: '.75rem 0 1rem 0'
           }}
         >
-          Maybe you’ve heard these different marketing terms, maybe you haven’t.
-          Either way, let me help to clarify the difference between
+          I am a web developer that specializes in frontend development, but
+          enjoys the entire process of developing a user focused product to help
+          people succeed. When I am not working, I spend my time consuming
+          content, such as screencasts, podcasts, blogs, and occasionally books,
+          about new and exciting, or new to me, web technologies.
         </BodyText>
       </GrayBackground>
     </Box>
@@ -53,14 +56,14 @@ const WhoAreWe = () => (
       <BodyText
         style={{
           padding: '0 2rem 0 2rem',
-          margin: '.75rem 0 1rem 0'
+          margin: '.75rem 0 1rem 0',
+          flex: '0 0 100%'
         }}
       >
-        Maybe you’ve heard these different marketing terms, maybe you haven’t.
-        Either way, let me help to clarify the difference between them, because
-        you should have all three if you want to market successfully. And
-        knowing what they are may be your first step to accomplishing all three
-        for your business.
+        You are one of the leaders in cutting edge development tooling for the
+        JavaScript ecosystem. From Meteor to Galaxy to Apollo, you release tools
+        that help developers all around the world be more effective, and
+        happier, in their daily workflow.
       </BodyText>
     </Box>
   </Container>
