@@ -6,6 +6,7 @@ import { Container, FlexContainer, Left } from '../../components/shared';
 import EducationOrExperience from '../../components/education-or-experience';
 
 import ResumeQuery from '../../components/resume-query';
+import Skills from '../../components/skills';
 
 const Name = glamorous.h1({
   fontWeight: '200',
@@ -79,35 +80,6 @@ const INFO_QUERY = gql`
   }
 `;
 
-const SkillCategory = ({ name, list }) => (
-  <div style={{ marginBottom: '1rem' }}>
-    <span style={{ fontWeight: '600' }}>{name}</span>
-    <span style={{ fontWeight: '200' }}>
-      {list.map((skill, i) => ` ${skill}${i < list.length - 1 ? ',' : ''}`)}
-    </span>
-  </div>
-);
-const Skills = ({ skills }) => {
-  const categorized = skills.reduce((map, { id, type, name }) => {
-    if (!map[type]) map[type] = { id, skills: [] };
-    map[type].skills = [...map[type].skills, name];
-    return map;
-  }, {});
-  return (
-    <div
-      style={{
-        padding: '0 0 0 1.25em',
-        borderLeft: '3px solid #5661B3',
-        lineHeight: '1.5',
-        width: '650px'
-      }}
-    >
-      {Object.entries(categorized).map(([type, { id, skills }]) => (
-        <SkillCategory key={id} name={type} list={skills} />
-      ))}
-    </div>
-  );
-};
 const Resume = () => (
   <Container>
     <FlexContainer style={{ width: '100%' }}>
