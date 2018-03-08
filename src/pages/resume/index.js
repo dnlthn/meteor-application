@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  HeaderText,
   BodyText,
   Container,
   FlexContainer,
@@ -8,9 +7,8 @@ import {
   Right
 } from '../../components/shared';
 import { gql } from 'apollo-boost';
-import { Query } from 'react-apollo';
-import { PulseLoader } from 'react-spinners';
 import glamorous from 'glamorous';
+import ResumeQuery from '../../components/resume-query';
 
 const Name = glamorous.h1({
   fontWeight: '200',
@@ -112,22 +110,6 @@ const Content = ({ date, location, title, company, body }) => (
   </div>
 );
 
-const SubtitleText = glamorous.h6({
-  fontSize: '1rem',
-  fontWeight: '400',
-  color: '#8795A1',
-  margin: '0',
-  padding: '0',
-  fontStyle: 'italic'
-});
-
-const Label = ({ title, subtitle }) => (
-  <div>
-    <HeaderText style={{ margin: '0', padding: '0' }}>{title}</HeaderText>
-    {subtitle && <SubtitleText>{subtitle}</SubtitleText>}
-  </div>
-);
-
 const Category = ({ name, list }) => (
   <div style={{ marginBottom: '1rem' }}>
     <span style={{ fontWeight: '600' }}>{name}</span>
@@ -172,169 +154,88 @@ const Resume = () => (
       </Left>
     </FlexContainer>
 
-    <FlexContainer style={{ width: '100%', marginTop: '2rem' }}>
-      <Left>
-        <Label title="QUICK INFO" />
-      </Left>
-      <Query query={INFO_QUERY} variables={{ email: 'hey@danielthompson.io' }}>
-        {({ loading, error, data: { Person } }) => {
-          if (loading)
-            return (
-              <div
-                style={{
-                  display: 'flex',
-                  justifyContent: 'center',
-                  flex: '1 0 auto'
-                }}
-              >
-                <PulseLoader color={'#5661B3'} />
+    <ResumeQuery query={INFO_QUERY}>
+      {Person => {
+        const { email, twitter, github } = Person;
+        return (
+          <Right>
+            <div
+              style={{
+                padding: '0 0 0 1.25em',
+                borderLeft: '3px solid #5661B3',
+                lineHeight: '1.5',
+                width: '650px'
+              }}
+            >
+              <div style={{ marginBottom: '1rem' }}>
+                <span style={{ fontWeight: '600' }}>Email </span>
+                <span style={{ fontWeight: '200' }}>{email}</span>
               </div>
-            );
-
-          const { email, twitter, github } = Person;
-          return (
-            <Right>
-              <div
-                style={{
-                  padding: '0 0 0 1.25em',
-                  borderLeft: '3px solid #5661B3',
-                  lineHeight: '1.5',
-                  width: '650px'
-                }}
-              >
-                <div style={{ marginBottom: '1rem' }}>
-                  <span style={{ fontWeight: '600' }}>Email </span>
-                  <span style={{ fontWeight: '200' }}>{email}</span>
-                </div>
-                <div style={{ marginBottom: '1rem' }}>
-                  <span style={{ fontWeight: '600' }}>Twitter </span>
-                  <span style={{ fontWeight: '200' }}>{twitter}</span>
-                </div>
-                <div style={{ marginBottom: '1rem' }}>
-                  <span style={{ fontWeight: '600' }}>GitHub </span>
-                  <span style={{ fontWeight: '200' }}>{github}</span>
-                </div>
+              <div style={{ marginBottom: '1rem' }}>
+                <span style={{ fontWeight: '600' }}>Twitter </span>
+                <span style={{ fontWeight: '200' }}>{twitter}</span>
               </div>
-            </Right>
-          );
-        }}
-      </Query>
-    </FlexContainer>
-
-    <FlexContainer style={{ width: '100%', marginTop: '2rem' }}>
-      <Left>
-        <Label title="Skills" subtitle="or tech I use day to day" />
-      </Left>
-      <Query
-        query={SKILLS_QUERY}
-        variables={{ email: 'hey@danielthompson.io' }}
-      >
-        {({ loading, error, data: { Person } }) => {
-          if (loading)
-            return (
-              <div
-                style={{
-                  display: 'flex',
-                  justifyContent: 'center',
-                  flex: '1 0 auto'
-                }}
-              >
-                <PulseLoader color={'#5661B3'} />
+              <div style={{ marginBottom: '1rem' }}>
+                <span style={{ fontWeight: '600' }}>GitHub </span>
+                <span style={{ fontWeight: '200' }}>{github}</span>
               </div>
-            );
+            </div>
+          </Right>
+        );
+      }}
+    </ResumeQuery>
 
-          const { skills } = Person;
-          return (
-            <Right>
-              <Skills skills={skills} />
-            </Right>
-          );
-        }}
-      </Query>
-    </FlexContainer>
+    <ResumeQuery query={SKILLS_QUERY}>
+      {Person => {
+        const { skills } = Person;
+        return (
+          <Right>
+            <Skills skills={skills} />
+          </Right>
+        );
+      }}
+    </ResumeQuery>
 
-    <FlexContainer style={{ width: '100%', marginTop: '2rem' }}>
-      <Left>
-        <Label title="Education" />
-      </Left>
-      <Query
-        query={EDUCATION_QUERY}
-        variables={{ email: 'hey@danielthompson.io' }}
-      >
-        {({ loading, error, data: { Person } }) => {
-          if (loading)
-            return (
-              <div
-                style={{
-                  display: 'flex',
-                  justifyContent: 'center',
-                  flex: '1 0 auto'
-                }}
-              >
-                <PulseLoader color={'#5661B3'} />
-              </div>
-            );
+    <ResumeQuery query={EDUCATION_QUERY}>
+      {Person => {
+        const { education } = Person;
+        return (
+          <Right>
+            {education.map(({ id, location, timeSpan, degree, name }) => (
+              <Content
+                key={id}
+                date={timeSpan}
+                location={location}
+                title={degree}
+                company={name}
+              />
+            ))}
+          </Right>
+        );
+      }}
+    </ResumeQuery>
 
-          const { education } = Person;
-          return (
-            <Right>
-              {education.map(({ id, location, timeSpan, degree, name }) => (
+    <ResumeQuery query={EXPERIENCE_QUERY}>
+      {Person => {
+        const { experience } = Person;
+        return (
+          <Right>
+            {experience.map(
+              ({ body, company, id, location, timeSpan, title }) => (
                 <Content
                   key={id}
                   date={timeSpan}
                   location={location}
-                  title={degree}
-                  company={name}
+                  title={title}
+                  company={company}
+                  body={body}
                 />
-              ))}
-            </Right>
-          );
-        }}
-      </Query>
-    </FlexContainer>
-
-    <FlexContainer style={{ width: '100%', marginTop: '2rem' }}>
-      <Left>
-        <Label title="Experience" />
-      </Left>
-      <Query
-        query={EXPERIENCE_QUERY}
-        variables={{ email: 'hey@danielthompson.io' }}
-      >
-        {({ loading, error, data: { Person } }) => {
-          if (loading)
-            return (
-              <div
-                style={{
-                  display: 'flex',
-                  justifyContent: 'center',
-                  flex: '1 0 auto'
-                }}
-              >
-                <PulseLoader color={'#5661B3'} />
-              </div>
-            );
-
-          const { experience } = Person;
-          return (
-            <Right>
-              {experience.map(
-                ({ body, company, id, location, timeSpan, title }) => (
-                  <Content
-                    key={id}
-                    date={timeSpan}
-                    location={location}
-                    title={title}
-                    company={company}
-                    body={body}
-                  />
-                )
-              )}
-            </Right>
-          );
-        }}
-      </Query>
-    </FlexContainer>
+              )
+            )}
+          </Right>
+        );
+      }}
+    </ResumeQuery>
   </Container>
 );
 
