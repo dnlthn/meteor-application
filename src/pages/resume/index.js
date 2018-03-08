@@ -93,7 +93,7 @@ const INFO_QUERY = gql`
     }
   }
 `;
-const Content = ({ date, location, title, company, body }) => (
+const EducationOrExperience = ({ date, location, title, company, body }) => (
   <div
     style={{
       padding: '0 0 0 1.25em',
@@ -109,7 +109,7 @@ const Content = ({ date, location, title, company, body }) => (
   </div>
 );
 
-const Category = ({ name, list }) => (
+const SkillCategory = ({ name, list }) => (
   <div style={{ marginBottom: '1rem' }}>
     <span style={{ fontWeight: '600' }}>{name}</span>
     <span style={{ fontWeight: '200' }}>
@@ -133,7 +133,7 @@ const Skills = ({ skills }) => {
       }}
     >
       {Object.entries(categorized).map(([type, { id, skills }]) => (
-        <Category key={id} name={type} list={skills} />
+        <SkillCategory key={id} name={type} list={skills} />
       ))}
     </div>
   );
@@ -186,7 +186,7 @@ const Resume = () => (
     <ResumeQuery query={EDUCATION_QUERY}>
       {({ education }) =>
         education.map(({ id, location, timeSpan, degree, name }) => (
-          <Content
+          <EducationOrExperience
             key={id}
             date={timeSpan}
             location={location}
@@ -200,7 +200,7 @@ const Resume = () => (
     <ResumeQuery query={EXPERIENCE_QUERY}>
       {({ experience }) =>
         experience.map(({ body, company, id, location, timeSpan, title }) => (
-          <Content
+          <EducationOrExperience
             key={id}
             date={timeSpan}
             location={location}
