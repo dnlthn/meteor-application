@@ -53,7 +53,15 @@ const Tech = () => (
       <DisclaimerHeader>
         <DisclaimerText>Disclaimer</DisclaimerText>
         <Right>
-          <GitHubButton darkBackground={true}>VIEW SOURCE</GitHubButton>
+          <GitHubButton
+            darkBackground={true}
+            onClick={() => {
+              window.location.href =
+                'https://github.com/dnlthn/meteor-application';
+            }}
+          >
+            VIEW SOURCE
+          </GitHubButton>
         </Right>
       </DisclaimerHeader>
       <BodyText darkBackground={true} style={{ marginTop: '0' }}>
