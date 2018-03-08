@@ -5,7 +5,6 @@ import { Consumer as NavigationConsumer } from '../../context/navigation';
 import { BodyText, Container } from '../../components/shared';
 import PrimaryButton from '../../components/primary-button';
 import TextButton from '../../components/text-button';
-import SecondaryButton from '../../components/secondary-button';
 import resume_icon from '../../svg/news-paper.svg';
 import Comments from '../../components/comments';
 
