@@ -1,6 +1,6 @@
 {
   "name": "meteor-application",
-  "version": "0.1.0",
+  "version": "0.9",
   "private": true,
   "dependencies": {
     "apollo-boost": "^0.1.1",
@@ -11,7 +11,9 @@
     "react": "^16.4.0-alpha.0911da3",
     "react-apollo": "^3.0.0-alpha.0",
     "react-dom": "^16.4.0-alpha.0911da3",
-    "react-scripts": "1.1.1"
+    "react-scripts": "1.1.1",
+    "react-spinners": "^0.2.6",
+    "sanitize.css": "^5.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
