@@ -155,86 +155,74 @@ const Resume = () => (
     </FlexContainer>
 
     <ResumeQuery query={INFO_QUERY}>
-      {Person => {
-        const { email, twitter, github } = Person;
-        return (
-          <Right>
-            <div
-              style={{
-                padding: '0 0 0 1.25em',
-                borderLeft: '3px solid #5661B3',
-                lineHeight: '1.5',
-                width: '650px'
-              }}
-            >
-              <div style={{ marginBottom: '1rem' }}>
-                <span style={{ fontWeight: '600' }}>Email </span>
-                <span style={{ fontWeight: '200' }}>{email}</span>
-              </div>
-              <div style={{ marginBottom: '1rem' }}>
-                <span style={{ fontWeight: '600' }}>Twitter </span>
-                <span style={{ fontWeight: '200' }}>{twitter}</span>
-              </div>
-              <div style={{ marginBottom: '1rem' }}>
-                <span style={{ fontWeight: '600' }}>GitHub </span>
-                <span style={{ fontWeight: '200' }}>{github}</span>
-              </div>
+      {({ email, twitter, github }) => (
+        <Right>
+          <div
+            style={{
+              padding: '0 0 0 1.25em',
+              borderLeft: '3px solid #5661B3',
+              lineHeight: '1.5',
+              width: '650px'
+            }}
+          >
+            <div style={{ marginBottom: '1rem' }}>
+              <span style={{ fontWeight: '600' }}>Email </span>
+              <span style={{ fontWeight: '200' }}>{email}</span>
             </div>
-          </Right>
-        );
-      }}
+            <div style={{ marginBottom: '1rem' }}>
+              <span style={{ fontWeight: '600' }}>Twitter </span>
+              <span style={{ fontWeight: '200' }}>{twitter}</span>
+            </div>
+            <div style={{ marginBottom: '1rem' }}>
+              <span style={{ fontWeight: '600' }}>GitHub </span>
+              <span style={{ fontWeight: '200' }}>{github}</span>
+            </div>
+          </div>
+        </Right>
+      )}
     </ResumeQuery>
 
     <ResumeQuery query={SKILLS_QUERY}>
-      {Person => {
-        const { skills } = Person;
-        return (
-          <Right>
-            <Skills skills={skills} />
-          </Right>
-        );
-      }}
+      {({ skills }) => (
+        <Right>
+          <Skills skills={skills} />
+        </Right>
+      )}
     </ResumeQuery>
 
     <ResumeQuery query={EDUCATION_QUERY}>
-      {Person => {
-        const { education } = Person;
-        return (
-          <Right>
-            {education.map(({ id, location, timeSpan, degree, name }) => (
+      {({ education }) => (
+        <Right>
+          {education.map(({ id, location, timeSpan, degree, name }) => (
+            <Content
+              key={id}
+              date={timeSpan}
+              location={location}
+              title={degree}
+              company={name}
+            />
+          ))}
+        </Right>
+      )}
+    </ResumeQuery>
+
+    <ResumeQuery query={EXPERIENCE_QUERY}>
+      {({ experience }) => (
+        <Right>
+          {experience.map(
+            ({ body, company, id, location, timeSpan, title }) => (
               <Content
                 key={id}
                 date={timeSpan}
                 location={location}
-                title={degree}
-                company={name}
+                title={title}
+                company={company}
+                body={body}
               />
-            ))}
-          </Right>
-        );
-      }}
-    </ResumeQuery>
-
-    <ResumeQuery query={EXPERIENCE_QUERY}>
-      {Person => {
-        const { experience } = Person;
-        return (
-          <Right>
-            {experience.map(
-              ({ body, company, id, location, timeSpan, title }) => (
-                <Content
-                  key={id}
-                  date={timeSpan}
-                  location={location}
-                  title={title}
-                  company={company}
-                  body={body}
-                />
-              )
-            )}
-          </Right>
-        );
-      }}
+            )
+          )}
+        </Right>
+      )}
     </ResumeQuery>
   </Container>
 );
