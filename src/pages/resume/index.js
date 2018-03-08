@@ -3,8 +3,7 @@ import {
   BodyText,
   Container,
   FlexContainer,
-  Left,
-  Right
+  Left
 } from '../../components/shared';
 import { gql } from 'apollo-boost';
 import glamorous from 'glamorous';
@@ -156,73 +155,61 @@ const Resume = () => (
 
     <ResumeQuery query={INFO_QUERY}>
       {({ email, twitter, github }) => (
-        <Right>
-          <div
-            style={{
-              padding: '0 0 0 1.25em',
-              borderLeft: '3px solid #5661B3',
-              lineHeight: '1.5',
-              width: '650px'
-            }}
-          >
-            <div style={{ marginBottom: '1rem' }}>
-              <span style={{ fontWeight: '600' }}>Email </span>
-              <span style={{ fontWeight: '200' }}>{email}</span>
-            </div>
-            <div style={{ marginBottom: '1rem' }}>
-              <span style={{ fontWeight: '600' }}>Twitter </span>
-              <span style={{ fontWeight: '200' }}>{twitter}</span>
-            </div>
-            <div style={{ marginBottom: '1rem' }}>
-              <span style={{ fontWeight: '600' }}>GitHub </span>
-              <span style={{ fontWeight: '200' }}>{github}</span>
-            </div>
+        <div
+          style={{
+            padding: '0 0 0 1.25em',
+            borderLeft: '3px solid #5661B3',
+            lineHeight: '1.5',
+            width: '650px'
+          }}
+        >
+          <div style={{ marginBottom: '1rem' }}>
+            <span style={{ fontWeight: '600' }}>Email </span>
+            <span style={{ fontWeight: '200' }}>{email}</span>
           </div>
-        </Right>
+          <div style={{ marginBottom: '1rem' }}>
+            <span style={{ fontWeight: '600' }}>Twitter </span>
+            <span style={{ fontWeight: '200' }}>{twitter}</span>
+          </div>
+          <div style={{ marginBottom: '1rem' }}>
+            <span style={{ fontWeight: '600' }}>GitHub </span>
+            <span style={{ fontWeight: '200' }}>{github}</span>
+          </div>
+        </div>
       )}
     </ResumeQuery>
 
     <ResumeQuery query={SKILLS_QUERY}>
-      {({ skills }) => (
-        <Right>
-          <Skills skills={skills} />
-        </Right>
-      )}
+      {({ skills }) => <Skills skills={skills} />}
     </ResumeQuery>
 
     <ResumeQuery query={EDUCATION_QUERY}>
-      {({ education }) => (
-        <Right>
-          {education.map(({ id, location, timeSpan, degree, name }) => (
-            <Content
-              key={id}
-              date={timeSpan}
-              location={location}
-              title={degree}
-              company={name}
-            />
-          ))}
-        </Right>
-      )}
+      {({ education }) =>
+        education.map(({ id, location, timeSpan, degree, name }) => (
+          <Content
+            key={id}
+            date={timeSpan}
+            location={location}
+            title={degree}
+            company={name}
+          />
+        ))
+      }
     </ResumeQuery>
 
     <ResumeQuery query={EXPERIENCE_QUERY}>
-      {({ experience }) => (
-        <Right>
-          {experience.map(
-            ({ body, company, id, location, timeSpan, title }) => (
-              <Content
-                key={id}
-                date={timeSpan}
-                location={location}
-                title={title}
-                company={company}
-                body={body}
-              />
-            )
-          )}
-        </Right>
-      )}
+      {({ experience }) =>
+        experience.map(({ body, company, id, location, timeSpan, title }) => (
+          <Content
+            key={id}
+            date={timeSpan}
+            location={location}
+            title={title}
+            company={company}
+            body={body}
+          />
+        ))
+      }
     </ResumeQuery>
   </Container>
 );

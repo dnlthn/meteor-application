@@ -1,5 +1,10 @@
 import React from 'react';
-import { HeaderText, FlexContainer, Left } from '../../components/shared';
+import {
+  HeaderText,
+  FlexContainer,
+  Left,
+  Right
+} from '../../components/shared';
 import { Query } from 'react-apollo';
 import { PulseLoader } from 'react-spinners';
 import glamorous from 'glamorous';
@@ -40,7 +45,7 @@ const ResumeQuery = ({ query, children }) => {
               </div>
             );
 
-          return children(Person);
+          return <Right>{children(Person)} </Right>;
         }}
       </Query>
     </FlexContainer>
