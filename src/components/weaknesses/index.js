@@ -69,7 +69,9 @@ const Weaknesses = ({ style }) => (
             return Person.personality.map(({ id, title, body }) => (
               <div key={id} style={{ padding: '1.25em 1.25em 0 1.25em' }}>
                 <HeaderText darkBackground={true}>{title}</HeaderText>
-                <BodyText darkBackground={true}>{body}</BodyText>
+                {body.map(paragraph => (
+                  <BodyText darkBackground={true}>{paragraph}</BodyText>
+                ))}
               </div>
             ));
           }}

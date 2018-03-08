@@ -32,9 +32,9 @@ const Strengths = ({ style }) => (
           );
         if (error) return '😦';
         return Person.personality.map(({ id, title, body }) => (
-          <div key={id}>
+          <div key={id} style={{ marginTop: '2em' }}>
             <HeaderText>{title}</HeaderText>
-            <BodyText>{body}</BodyText>
+            {body.map(paragraph => <BodyText>{paragraph}</BodyText>)}
           </div>
         ));
       }}
