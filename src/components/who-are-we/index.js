@@ -59,7 +59,7 @@ const WhoAreWe = () => (
           flex: '0 0 100%'
         }}
       >
-        You are one of the leaders in cutting edge development tooling for the
+        You are one of the leaders in cutting edge developer tooling for the
         JavaScript ecosystem. From Meteor to Galaxy to Apollo, you release tools
         that help developers all around the world be more effective, and
         happier, in their daily workflow.
