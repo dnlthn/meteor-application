@@ -24,11 +24,11 @@ const Label = ({ title, subtitle }) => (
     {subtitle && <SubtitleText>{subtitle}</SubtitleText>}
   </div>
 );
-const ResumeQuery = ({ query, children }) => {
+const ResumeQuery = ({ query, sectionTitle, sectionSubtitle, children }) => {
   return (
     <FlexContainer style={{ width: '100%', marginTop: '2rem' }}>
       <Left>
-        <Label title="QUICK INFO" />
+        <Label title={sectionTitle} subtitle={sectionSubtitle} />
       </Left>
       <Query query={query} variables={{ email: 'hey@danielthompson.io' }}>
         {({ loading, error, data: { Person } }) => {

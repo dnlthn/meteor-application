@@ -96,15 +96,19 @@ const Resume = () => (
       </Left>
     </FlexContainer>
 
-    <ResumeQuery query={INFO_QUERY}>
+    <ResumeQuery query={INFO_QUERY} sectionTitle="QUICK INFO">
       {props => <QuickInfo {...props} />}
     </ResumeQuery>
 
-    <ResumeQuery query={SKILLS_QUERY}>
+    <ResumeQuery
+      query={SKILLS_QUERY}
+      sectionTitle="SKILLS"
+      sectionSubtitle="or tech I use day to day"
+    >
       {props => <Skills {...props} />}
     </ResumeQuery>
 
-    <ResumeQuery query={EDUCATION_QUERY}>
+    <ResumeQuery query={EDUCATION_QUERY} sectionTitle="EDUCATION">
       {({ education }) =>
         education.map(({ id, location, timeSpan, degree, name }) => (
           <EducationOrExperience
@@ -118,7 +122,7 @@ const Resume = () => (
       }
     </ResumeQuery>
 
-    <ResumeQuery query={EXPERIENCE_QUERY}>
+    <ResumeQuery query={EXPERIENCE_QUERY} sectionTitle="EXPERIENCE">
       {({ experience }) =>
         experience.map(({ body, company, id, location, timeSpan, title }) => (
           <EducationOrExperience
