@@ -1,12 +1,10 @@
 import React from 'react';
-import {
-  BodyText,
-  Container,
-  FlexContainer,
-  Left
-} from '../../components/shared';
 import { gql } from 'apollo-boost';
+
 import glamorous from 'glamorous';
+import { Container, FlexContainer, Left } from '../../components/shared';
+import EducationOrExperience from '../../components/education-or-experience';
+
 import ResumeQuery from '../../components/resume-query';
 
 const Name = glamorous.h1({
@@ -29,19 +27,6 @@ const Statement = glamorous.h2({
 });
 const Title = glamorous.span({
   fontWeight: '600'
-});
-
-const LighterText = glamorous.p({
-  margin: '0',
-  padding: '0',
-  color: '#8795A1'
-});
-
-const TitleText = glamorous.p({
-  margin: '0',
-  padding: '0',
-  fontSize: '1.5rem',
-  color: '#22292F'
 });
 
 const EXPERIENCE_QUERY = gql`
@@ -93,21 +78,6 @@ const INFO_QUERY = gql`
     }
   }
 `;
-const EducationOrExperience = ({ date, location, title, company, body }) => (
-  <div
-    style={{
-      padding: '0 0 0 1.25em',
-      borderLeft: '3px solid #5661B3',
-      lineHeight: '1.5',
-      width: '650px'
-    }}
-  >
-    <LighterText>{`${date} | ${location}`}</LighterText>
-    <TitleText>{title}</TitleText>
-    <LighterText>{company}</LighterText>
-    {body && <BodyText>{body}</BodyText>}
-  </div>
-);
 
 const SkillCategory = ({ name, list }) => (
   <div style={{ marginBottom: '1rem' }}>
